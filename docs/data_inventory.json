@@ -1,0 +1,1346 @@
+{
+ "files": [
+  {
+   "path": "acs/SOURCE.txt",
+   "mb": 0.0
+  },
+  {
+   "path": "acs/acs5_2024_sf_tracts.csv",
+   "mb": 0.02
+  },
+  {
+   "path": "analysis_neighborhoods/SOURCE.txt",
+   "mb": 0.0
+  },
+  {
+   "path": "analysis_neighborhoods/analysis_neighborhoods_j2bu-swwd.geojson",
+   "mb": 1.71
+  },
+  {
+   "path": "assessor_roll/SOURCE.txt",
+   "mb": 0.0
+  },
+  {
+   "path": "assessor_roll/assessor_roll_wv5m-vpq2_2020plus.csv",
+   "mb": 590.79
+  },
+  {
+   "path": "building_footprints/SOURCE.txt",
+   "mb": 0.0
+  },
+  {
+   "path": "building_footprints/building_footprints_ynuv-fyni.geojson",
+   "mb": 320.71
+  },
+  {
+   "path": "census_boundaries/SOURCE.txt",
+   "mb": 0.0
+  },
+  {
+   "path": "census_boundaries/cb_2024_06_tract_500k.zip",
+   "mb": 4.28
+  },
+  {
+   "path": "census_boundaries/cb_2024_us_county_500k.zip",
+   "mb": 11.63
+  },
+  {
+   "path": "cgs_landslide_zones/SOURCE.txt",
+   "mb": 0.0
+  },
+  {
+   "path": "cgs_landslide_zones/cgs_landslide_zones.geojson",
+   "mb": 43.46
+  },
+  {
+   "path": "cgs_liquefaction_zones/SOURCE.txt",
+   "mb": 0.0
+  },
+  {
+   "path": "cgs_liquefaction_zones/cgs_liquefaction_zones.geojson",
+   "mb": 1.44
+  },
+  {
+   "path": "cgs_unevaluated_areas/SOURCE.txt",
+   "mb": 0.0
+  },
+  {
+   "path": "cgs_unevaluated_areas/cgs_unevaluated_areas.geojson",
+   "mb": 0.02
+  },
+  {
+   "path": "haywired_liquefaction/SOURCE.txt",
+   "mb": 0.0
+  },
+  {
+   "path": "haywired_liquefaction/haywired_expanded_liquefaction_probability.zip",
+   "mb": 13.07
+  },
+  {
+   "path": "haywired_shakemap/SOURCE.txt",
+   "mb": 0.0
+  },
+  {
+   "path": "haywired_shakemap/event.txt",
+   "mb": 0.0
+  },
+  {
+   "path": "haywired_shakemap/fault.kmz",
+   "mb": 0.0
+  },
+  {
+   "path": "haywired_shakemap/grid.xml.zip",
+   "mb": 0.75
+  },
+  {
+   "path": "haywired_shakemap/info.json",
+   "mb": 0.0
+  },
+  {
+   "path": "haywired_shakemap/intensity.jpg",
+   "mb": 0.13
+  },
+  {
+   "path": "haywired_shakemap/metadata.txt",
+   "mb": 0.03
+  },
+  {
+   "path": "haywired_shakemap/metadata.xml",
+   "mb": 0.03
+  },
+  {
+   "path": "haywired_shakemap/raster.zip",
+   "mb": 0.63
+  },
+  {
+   "path": "haywired_shakemap/rock_grid.xml.zip",
+   "mb": 0.75
+  },
+  {
+   "path": "haywired_shakemap/uncertainty.xml.zip",
+   "mb": 0.21
+  },
+  {
+   "path": "parcels/SOURCE.txt",
+   "mb": 0.0
+  },
+  {
+   "path": "parcels/parcels_acdm-wktn.geojson",
+   "mb": 345.85
+  },
+  {
+   "path": "soft_story/SOURCE.txt",
+   "mb": 0.0
+  },
+  {
+   "path": "soft_story/soft_story_beah-shgi.csv",
+   "mb": 0.96
+  },
+  {
+   "path": "usgs_qfaults/Qfaults_GIS.zip",
+   "mb": 32.37
+  },
+  {
+   "path": "usgs_qfaults/SOURCE.txt",
+   "mb": 0.0
+  }
+ ],
+ "soft_story": {
+  "rows": 4958,
+  "crs": "EPSG:4326",
+  "geometry_types": {
+   "Point": 4954
+  },
+  "invalid": 0,
+  "empty": 0,
+  "null_geometry": 0,
+  "bounds": [
+   -122.50978,
+   37.70848,
+   -122.37379,
+   37.80616
+  ],
+  "columns": [
+   "block",
+   "lot",
+   "parcel_number",
+   "property_address",
+   "address",
+   "tier",
+   "status",
+   "bos_district",
+   "point",
+   "data_as_of",
+   "data_loaded_at",
+   "Current Police Districts",
+   "Current Supervisor Districts",
+   "Analysis Neighborhoods",
+   "Neighborhoods",
+   "SF Find Neighborhoods"
+  ],
+  "key_fields": {
+   "block": {
+    "dtype": "str",
+    "nulls": 0,
+    "unique": 1480,
+    "sample": [
+     "1423",
+     "0134",
+     "3637",
+     "0120",
+     "0479"
+    ]
+   },
+   "lot": {
+    "dtype": "str",
+    "nulls": 0,
+    "unique": 279,
+    "sample": [
+     "011",
+     "021",
+     "027",
+     "008",
+     "002"
+    ]
+   },
+   "parcel_number": {
+    "dtype": "str",
+    "nulls": 0,
+    "unique": 4897,
+    "sample": [
+     "1423011",
+     "0134021",
+     "3637027",
+     "0120008",
+     "0479002"
+    ]
+   },
+   "tier": {
+    "dtype": "str",
+    "nulls": 0,
+    "unique": 4,
+    "sample": [
+     "3",
+     "3",
+     "4",
+     "3",
+     "3"
+    ]
+   },
+   "status": {
+    "dtype": "str",
+    "nulls": 0,
+    "unique": 4,
+    "sample": [
+     "Work Complete, CFC Issued",
+     "Work Complete, CFC Issued",
+     "Work Complete, CFC Issued",
+     "Work Complete, CFC Issued",
+     "Work Complete, CFC Issued"
+    ]
+   }
+  },
+  "no_coordinates": [
+   {
+    "parcel_number": "170243",
+    "property_address": "1230 LA PLAYA *"
+   },
+   {
+    "parcel_number": "121310",
+    "property_address": "2267 HAYES ST"
+   },
+   {
+    "parcel_number": "0843015",
+    "property_address": "668 PAGE ST"
+   },
+   {
+    "parcel_number": "161820",
+    "property_address": "2525 BALBOA ST"
+   }
+  ],
+  "tier": {
+   "3": 3408,
+   "4": 1026,
+   "2": 516,
+   "1": 8
+  },
+  "status": {
+   "Work Complete, CFC Issued": 4715,
+   "Non-Compliant": 228,
+   "Newly Added": 12,
+   "work Complete, CFC Issued": 3
+  },
+  "status_by_tier": {
+   "newly added": {
+    "1": 1,
+    "2": 2,
+    "3": 7,
+    "4": 2
+   },
+   "non-compliant": {
+    "1": 0,
+    "2": 15,
+    "3": 136,
+    "4": 77
+   },
+   "work complete, cfc issued": {
+    "1": 7,
+    "2": 499,
+    "3": 3265,
+    "4": 947
+   }
+  },
+  "parcel_number_lengths": {
+   "7": 4430,
+   "8": 521,
+   "9": 4,
+   "6": 3
+  },
+  "parcel_number_with_letters": 525,
+  "parcel_number_equals_block_plus_lot": 4957,
+  "unpadded_lots": [
+   {
+    "block": "1702",
+    "lot": "43",
+    "parcel_number": "170243"
+   },
+   {
+    "block": "1213",
+    "lot": "10",
+    "parcel_number": "121310"
+   },
+   {
+    "block": "1618",
+    "lot": "20",
+    "parcel_number": "161820"
+   }
+  ],
+  "rows_sharing_a_parcel": 84,
+  "parcels_with_several_rows": 27,
+  "exact_duplicate_rows": 1,
+  "data_as_of": [
+   "2026/10/07 01:03:51 AM"
+  ]
+ },
+ "assessor": {
+  "file": "assessor_roll_wv5m-vpq2_2020plus.csv",
+  "rows": 1268350,
+  "columns_kept_for_inventory": [
+   "closed_roll_year",
+   "parcel_number",
+   "block",
+   "lot",
+   "property_location",
+   "use_code",
+   "use_definition",
+   "property_class_code",
+   "property_class_code_definition",
+   "year_property_built",
+   "number_of_units",
+   "number_of_stories",
+   "construction_type"
+  ],
+  "rows_by_year": {
+   "2020": 209695,
+   "2021": 210698,
+   "2022": 211551,
+   "2023": 212206,
+   "2024": 212653,
+   "2025": 211547
+  },
+  "latest_year": "2025",
+  "duplicate_parcel_within_year": {
+   "2020": 0,
+   "2021": 0,
+   "2022": 0,
+   "2023": 0,
+   "2024": 0,
+   "2025": 0
+  },
+  "parcels_in_several_years": 213297,
+  "unique_parcels_all_years": 213869,
+  "latest_parcel_number": {
+   "nulls": 0,
+   "lengths": {
+    "7": 176031,
+    "8": 32003,
+    "9": 3513
+   },
+   "with_letters": 35516,
+   "sample": [
+    "3149004",
+    "2746039",
+    "3510020",
+    "4957015",
+    "1939027",
+    "0506007",
+    "0452T035C",
+    "4591C583"
+   ],
+   "equals_block_plus_lot": 211547
+  },
+  "latest_year_built": {
+   "nulls": 10683,
+   "zeros": 0,
+   "min_nonzero": 1808.0,
+   "median": 1938.0,
+   "max": 2025.0,
+   "before_1800": 0,
+   "after_2026": 0
+  },
+  "latest_units": {
+   "nulls": 0,
+   "zeros": 50431,
+   "median": 1.0,
+   "max": 3146.0
+  },
+  "latest_use_definition": {
+   "Single Family Residential": 155111,
+   "Multi-Family Residential": 36278,
+   "Miscellaneous/Mixed-Use": 5487,
+   "Commercial Misc": 4992,
+   "Commercial Retail": 4377,
+   "Industrial": 2372,
+   "Commercial Office": 1818,
+   "Commercial Hotel": 758,
+   "Government": 354
+  },
+  "latest_property_class_top": {
+   "Dwelling": 95049,
+   "Condominium": 52307,
+   "Flats & Duplex": 17902,
+   "Apartment 5 to 14 Units": 5884,
+   "Apartment 4 units or less": 4110,
+   "Live/Work Condominium": 3117,
+   "Commercial Stores": 2727,
+   "Apartment 15 Units or more": 2591,
+   "Condominium BMR": 2208,
+   "Flat & Store 4 units or less": 2177,
+   "Timeshare": 2039,
+   "Vacant Lot Public Use": 2013,
+   "Industrial": 1792,
+   "Vacant Lot Residential": 1568,
+   "Office": 1247
+  },
+  "latest_construction_type": {
+   "D": 151588,
+   "NaN": 47305,
+   "C": 5406,
+   "A": 2773,
+   "B": 2479,
+   "WOO": 1346,
+   "S": 482,
+   "STE": 160,
+   "REI": 8
+  }
+ },
+ "footprints": {
+  "rows": 177023,
+  "crs": "EPSG:4326",
+  "geometry_types": {
+   "MultiPolygon": 177023
+  },
+  "invalid": 20,
+  "empty": 0,
+  "null_geometry": 0,
+  "bounds": [
+   -122.51109,
+   37.70475,
+   -122.35764,
+   37.83193
+  ],
+  "columns": [
+   "gnd_min_m",
+   "mblr",
+   "globalid",
+   "sf16_bldgid",
+   "hgt_median_m"
+  ],
+  "key_fields": {
+   "sf16_bldgid": {
+    "dtype": "str",
+    "nulls": 0,
+    "unique": 177023,
+    "sample": [
+     "201006.0050671",
+     "201006.0094230",
+     "201006.0068994",
+     "201006.0008360",
+     "201006.0014769"
+    ]
+   },
+   "mblr": {
+    "dtype": "str",
+    "nulls": 0,
+    "unique": 149714,
+    "sample": [
+     "SF2480002B",
+     "SF6958005",
+     "SF5937046",
+     "SF0600013",
+     "SF0582020"
+    ]
+   },
+   "hgt_median_m": {
+    "dtype": "str",
+    "nulls": 0,
+    "unique": 3031,
+    "sample": [
+     "5.71",
+     "7.9000000000000004",
+     "5.7999999999999998",
+     "11.699999999999999",
+     "14.220000000000001"
+    ]
+   }
+  },
+  "mblr_prefix": {
+   "SF": 172695,
+   "SM": 3207,
+   "CN": 1118,
+   "SFVACSTART": 2,
+   "SFPARKHOLL": 1
+  },
+  "mblr_lengths": {
+   "9": 143448,
+   "10": 29342,
+   "11": 4222,
+   "8": 11
+  },
+  "mblr_shared_by_several_footprints": 27309,
+  "outside_sf_county": 3401,
+  "outside_sf_by_prefix": {
+   "SM": 3140,
+   "SF": 175,
+   "CN": 86
+  },
+  "area_m2": {
+   "count": 177023.0,
+   "mean": 184.1,
+   "std": 469.9,
+   "min": 0.8,
+   "25%": 97.7,
+   "50%": 125.2,
+   "75%": 158.2,
+   "max": 44560.1
+  },
+  "hgt_median_m": {
+   "count": 177023.0,
+   "mean": 7.49,
+   "std": 4.42,
+   "min": -0.07,
+   "25%": 5.74,
+   "50%": 6.57,
+   "75%": 9.03,
+   "max": 218.4
+  }
+ },
+ "parcels": {
+  "rows": 236575,
+  "crs": "EPSG:4326",
+  "geometry_types": {
+   "MultiPolygon": 236303
+  },
+  "invalid": 0,
+  "empty": 0,
+  "null_geometry": 272,
+  "bounds": [
+   -122.51471,
+   37.70792,
+   -122.35564,
+   37.83607
+  ],
+  "columns": [
+   "mapblklot",
+   "date_rec_drop",
+   "blklot",
+   "in_asr_secured_roll",
+   "active"
+  ],
+  "key_fields": {
+   "blklot": {
+    "dtype": "str",
+    "nulls": 0,
+    "unique": 236303,
+    "sample": [
+     "6203030",
+     "1455038",
+     "0814396",
+     "6359004",
+     "6582038"
+    ]
+   },
+   "mapblklot": {
+    "dtype": "str",
+    "nulls": 0,
+    "unique": 163290,
+    "sample": [
+     "6203030",
+     "1455038",
+     "0814251",
+     "6359004",
+     "6582038"
+    ]
+   }
+  },
+  "active": {
+   "true": 227971,
+   "false": 8604
+  },
+  "in_asr_secured_roll": {
+   "true": 212255,
+   "false": 24320
+  },
+  "duplicate_blklot": 0,
+  "condo_lots_blklot_ne_mapblklot": 73287,
+  "blklot_not_normalizable": {
+   "count": 159,
+   "sample": [
+    "7331CMAA",
+    "7517COM",
+    "8721EASA",
+    "5054ACOMD",
+    "3833ROWA",
+    "7381CMB2",
+    "8721EASC",
+    "3834ROWB"
+   ]
+  }
+ },
+ "parcel_joins": {
+  "soft_story_to_assessor_latest_raw": 98.99,
+  "soft_story_to_assessor_latest_normalized": 99.05,
+  "soft_story_to_assessor_any_year_normalized": 99.44,
+  "soft_story_to_footprint_mblr_normalized": 98.49,
+  "footprints_in_sf_to_assessor_latest": 97.65,
+  "soft_story_unmatched_assessor_latest_sample": [
+   {
+    "parcel_number": "1188001",
+    "property_address": "17 ASHBURY ST"
+   },
+   {
+    "parcel_number": "3585094",
+    "property_address": "3822 19TH ST"
+   },
+   {
+    "parcel_number": "0493025",
+    "property_address": "1849 CHESTNUT ST"
+   },
+   {
+    "parcel_number": "1069039",
+    "property_address": "2 LUPINE AV"
+   },
+   {
+    "parcel_number": "3568035",
+    "property_address": "178 ALBION ST"
+   },
+   {
+    "parcel_number": "0779020",
+    "property_address": "950 STEINER ST"
+   },
+   {
+    "parcel_number": "1364034",
+    "property_address": "124 05TH AV"
+   },
+   {
+    "parcel_number": "7535100",
+    "property_address": "1 GOLD MINE DR"
+   },
+   {
+    "parcel_number": "1117001",
+    "property_address": "1050 BAKER ST"
+   },
+   {
+    "parcel_number": "3755111",
+    "property_address": "172 LANGTON ST"
+   },
+   {
+    "parcel_number": "1159001",
+    "property_address": "747 LYON ST"
+   },
+   {
+    "parcel_number": "0852003",
+    "property_address": "100 HAIGHT ST"
+   },
+   {
+    "parcel_number": "0497007A",
+    "property_address": "1580 LOMBARD ST"
+   },
+   {
+    "parcel_number": "2831001",
+    "property_address": "1200 CASTRO ST"
+   },
+   {
+    "parcel_number": "1521013",
+    "property_address": "471 23RD AV"
+   }
+  ],
+  "soft_story_unmatched_assessor_latest_count": 47,
+  "soft_story_unmatched_footprint_count": 75,
+  "soft_story_recovered_via_parcel_polygon": 46,
+  "soft_story_to_assessor_latest_any_route": 99.98,
+  "soft_story_still_unmatched": [
+   {
+    "parcel_number": "0843015",
+    "property_address": "668 PAGE ST"
+   }
+  ]
+ },
+ "shakemap": {
+  "file": "data/interim/haywired_shakemap.tif",
+  "source": "grid.xml (converted)",
+  "crs": "EPSG:4326",
+  "res_deg": [
+   0.016667,
+   0.016659
+  ],
+  "size": [
+   253,
+   206
+  ],
+  "bounds": [
+   -124.2083,
+   35.7767,
+   -119.9917,
+   39.2083
+  ],
+  "nodata": -9999.0,
+  "bands": {
+   "PGA": {
+    "units": "pctg",
+    "grid_min": 0.61,
+    "grid_max": 245.46,
+    "sf_min": 7.41,
+    "sf_max": 43.74,
+    "sf_mean": 23.065
+   },
+   "PGV": {
+    "units": "cms",
+    "grid_min": 1.16,
+    "grid_max": 527.37,
+    "sf_min": 5.35,
+    "sf_max": 36.48,
+    "sf_mean": 18.743
+   },
+   "MMI": {
+    "units": "intensity",
+    "grid_min": 3.34,
+    "grid_max": 10.0,
+    "sf_min": 4.21,
+    "sf_max": 8.39,
+    "sf_mean": 6.773
+   },
+   "PSA03": {
+    "units": "pctg",
+    "grid_min": 2.67,
+    "grid_max": 290.05,
+    "sf_min": 14.01,
+    "sf_max": 102.99,
+    "sf_mean": 59.41
+   },
+   "PSA10": {
+    "units": "pctg",
+    "grid_min": 1.49,
+    "grid_max": 660.04,
+    "sf_min": 4.7,
+    "sf_max": 39.99,
+    "sf_mean": 21.029
+   },
+   "PSA30": {
+    "units": "pctg",
+    "grid_min": 0.25,
+    "grid_max": 121.97,
+    "sf_min": 0.75,
+    "sf_max": 18.66,
+    "sf_mean": 5.463
+   }
+  },
+  "covers_sf_bbox": true,
+  "cells_touching_sf": 76,
+  "sf_mmi_vs_longitude_corr": 0.097,
+  "sf_mmi_by_lon_band": {
+   "(-122.53, -122.47]": "6.85",
+   "(-122.47, -122.42]": "6.77",
+   "(-122.42, -122.3]": "6.88"
+  },
+  "place_samples": {
+   "Marina": {
+    "PGA": 24.64,
+    "PGV": 19.93,
+    "MMI": 6.62,
+    "PSA03": 57.1,
+    "PSA10": 28.49,
+    "PSA30": 4.4
+   },
+   "Mission Bay": {
+    "PGA": 24.47,
+    "PGV": 22.75,
+    "MMI": 6.91,
+    "PSA03": 57.09,
+    "PSA10": 33.46,
+    "PSA30": 5.44
+   },
+   "SoMa (4th & Folsom)": {
+    "PGA": 25.33,
+    "PGV": 19.61,
+    "MMI": 6.99,
+    "PSA03": 60.93,
+    "PSA10": 25.88,
+    "PSA30": 5.72
+   },
+   "Treasure Island": {
+    "PGA": 43.74,
+    "PGV": 35.76,
+    "MMI": 7.18,
+    "PSA03": 83.11,
+    "PSA10": 22.3,
+    "PSA30": 6.24
+   },
+   "Bayview/Hunters Point": {
+    "PGA": 26.96,
+    "PGV": 23.85,
+    "MMI": 7.03,
+    "PSA03": 53.03,
+    "PSA10": 28.79,
+    "PSA30": 5.94
+   },
+   "Pacific Heights": {
+    "PGA": 26.88,
+    "PGV": 20.79,
+    "MMI": 7.09,
+    "PSA03": 77.37,
+    "PSA10": 21.91,
+    "PSA30": 6.37
+   },
+   "Twin Peaks": {
+    "PGA": 29.79,
+    "PGV": 19.54,
+    "MMI": 7.28,
+    "PSA03": 77.09,
+    "PSA10": 27.59,
+    "PSA30": 7.58
+   },
+   "Outer Sunset (30th & Judah)": {
+    "PGA": 17.65,
+    "PGV": 16.29,
+    "MMI": 6.71,
+    "PSA03": 52.14,
+    "PSA10": 25.04,
+    "PSA30": 4.95
+   }
+  }
+ },
+ "hazards": {
+  "cgs_liquefaction_zones": {
+   "rows": 132,
+   "crs": "EPSG:4326",
+   "geometry_types": {
+    "Polygon": 132
+   },
+   "invalid": 0,
+   "empty": 0,
+   "null_geometry": 0,
+   "bounds": [
+    -122.51496,
+    37.49994,
+    -122.25109,
+    37.99554
+   ],
+   "columns": [
+    "OBJECTID",
+    "QUAD_NAME",
+    "RELEASED",
+    "REVISED",
+    "PREV_DATES",
+    "GEOPDFLINK",
+    "REPORTLINK",
+    "COMMENTS",
+    "Shape__Area",
+    "Shape__Length",
+    "GlobalID"
+   ],
+   "key_fields": {
+    "QUAD_NAME": {
+     "dtype": "str",
+     "nulls": 0,
+     "unique": 8,
+     "sample": [
+      "San Francisco South",
+      "Montara Mountain",
+      "San Francisco South",
+      "Oakland West",
+      "San Francisco South"
+     ]
+    }
+   },
+   "features_in_sf": 53,
+   "area_in_sf_km2": 22.84,
+   "quads_in_sf": [
+    "Hunters Point",
+    "Oakland West",
+    "San Francisco North",
+    "San Francisco South"
+   ],
+   "released_dates_in_sf": [
+    "2000-11-17",
+    "2003-02-14",
+    "2021-08-17"
+   ]
+  },
+  "cgs_landslide_zones": {
+   "rows": 916,
+   "crs": "EPSG:4326",
+   "geometry_types": {
+    "Polygon": 916
+   },
+   "invalid": 1,
+   "empty": 0,
+   "null_geometry": 0,
+   "bounds": [
+    -122.52524,
+    37.49994,
+    -122.26443,
+    37.97121
+   ],
+   "columns": [
+    "OBJECTID",
+    "QUAD_NAME",
+    "RELEASED",
+    "REVISED",
+    "PREV_DATES",
+    "GEOPDFLINK",
+    "REPORTLINK",
+    "COMMENTS",
+    "Shape__Area",
+    "Shape__Length",
+    "GlobalID"
+   ],
+   "key_fields": {
+    "QUAD_NAME": {
+     "dtype": "str",
+     "nulls": 0,
+     "unique": 7,
+     "sample": [
+      "San Francisco South",
+      "Richmond",
+      "San Francisco South",
+      "Richmond",
+      "San Francisco North"
+     ]
+    }
+   },
+   "features_in_sf": 320,
+   "area_in_sf_km2": 3.75,
+   "quads_in_sf": [
+    "Hunters Point",
+    "Oakland West",
+    "San Francisco North",
+    "San Francisco South"
+   ],
+   "released_dates_in_sf": [
+    "2000-11-17",
+    "2003-02-14",
+    "2021-08-17"
+   ]
+  },
+  "cgs_unevaluated_areas": {
+   "rows": 8,
+   "crs": "EPSG:4326",
+   "geometry_types": {
+    "Polygon": 8
+   },
+   "invalid": 0,
+   "empty": 0,
+   "null_geometry": 0,
+   "bounds": [
+    -123.11363,
+    37.62494,
+    -122.25109,
+    37.99993
+   ],
+   "columns": [
+    "OBJECTID",
+    "QUAD_NAME",
+    "GEOPDFLINK",
+    "REPORTLINK",
+    "LABEL",
+    "COMMENTS",
+    "Shape__Area",
+    "Shape__Length",
+    "GlobalID"
+   ],
+   "key_fields": {
+    "QUAD_NAME": {
+     "dtype": "str",
+     "nulls": 0,
+     "unique": 8,
+     "sample": [
+      "San Francisco North",
+      "Double Point",
+      "Hunters Point",
+      "San Quentin",
+      "Farallon Islands"
+     ]
+    }
+   },
+   "features_in_sf": 1,
+   "area_in_sf_km2": 0.86,
+   "quads_in_sf": [
+    "Farallon Islands"
+   ],
+   "released_dates_in_sf": null
+  },
+  "haywired_liquefaction_probability": {
+   "rows": 11001,
+   "crs": "EPSG:4269",
+   "geometry_types": {
+    "Polygon": 11001
+   },
+   "invalid": 95,
+   "empty": 0,
+   "null_geometry": 0,
+   "bounds": [
+    -123.5336,
+    36.89311,
+    -121.20818,
+    38.86397
+   ],
+   "columns": [
+    "Reclass"
+   ],
+   "key_fields": {
+    "Reclass": {
+     "dtype": "str",
+     "nulls": 0,
+     "unique": 17,
+     "sample": [
+      "5 - 10",
+      "0",
+      "< 5",
+      "< 5",
+      "5 - 10"
+     ]
+    }
+   },
+   "classes": {
+    "5 - 10": 2394,
+    "< 5": 2239,
+    "0": 2038,
+    ">= 75": 962,
+    "20 - 25": 817,
+    "15 - 20": 814,
+    "10 - 15": 556,
+    "70 - 75": 447,
+    "65 - 70": 145,
+    "60 - 65": 95,
+    "30 - 35": 91,
+    "35 - 40": 87,
+    "55 - 60": 87,
+    "25 - 30": 65,
+    "40 - 45": 61,
+    "50 - 55": 54,
+    "45 - 50": 49
+   },
+   "area_in_sf_km2_by_class": {
+    "0": 58.05,
+    "10 - 15": 2.56,
+    "15 - 20": 0.9,
+    "20 - 25": 18.55,
+    "45 - 50": 0.05,
+    "5 - 10": 0.26,
+    "50 - 55": 0.02,
+    "< 5": 37.65
+   },
+   "sf_land_km2": 122.4
+  },
+  "place_checks": {
+   "Marina": {
+    "expected": "bay fill, liquefaction",
+    "cgs_liquefaction": true,
+    "cgs_landslide": false,
+    "haywired_liq_prob": "20 - 25"
+   },
+   "Mission Bay": {
+    "expected": "bay fill, liquefaction",
+    "cgs_liquefaction": true,
+    "cgs_landslide": false,
+    "haywired_liq_prob": "20 - 25"
+   },
+   "SoMa (4th & Folsom)": {
+    "expected": "old bay margin fill",
+    "cgs_liquefaction": true,
+    "cgs_landslide": false,
+    "haywired_liq_prob": "20 - 25"
+   },
+   "Treasure Island": {
+    "expected": "artificial fill",
+    "cgs_liquefaction": true,
+    "cgs_landslide": false,
+    "haywired_liq_prob": "20 - 25"
+   },
+   "Bayview/Hunters Point": {
+    "expected": "mixed fill and bedrock",
+    "cgs_liquefaction": false,
+    "cgs_landslide": false,
+    "haywired_liq_prob": "0"
+   },
+   "Pacific Heights": {
+    "expected": "bedrock ridge",
+    "cgs_liquefaction": false,
+    "cgs_landslide": false,
+    "haywired_liq_prob": "0"
+   },
+   "Twin Peaks": {
+    "expected": "bedrock hill",
+    "cgs_liquefaction": false,
+    "cgs_landslide": true,
+    "haywired_liq_prob": "0"
+   },
+   "Outer Sunset (30th & Judah)": {
+    "expected": "dune sand",
+    "cgs_liquefaction": false,
+    "cgs_landslide": false,
+    "haywired_liq_prob": "< 5"
+   }
+  }
+ },
+ "faults": {
+  "rows": 112809,
+  "crs": "EPSG:4326",
+  "geometry_types": {
+   "LineString": 112664,
+   "MultiLineString": 145
+  },
+  "invalid": 0,
+  "empty": 0,
+  "null_geometry": 0,
+  "bounds": [
+   -179.99999,
+   18.76623,
+   179.99999,
+   70.7517
+  ],
+  "columns": [
+   "fault_name",
+   "section_na",
+   "fault_id",
+   "section_id",
+   "Location",
+   "linetype",
+   "age",
+   "dip_direct",
+   "slip_rate",
+   "slip_sense",
+   "scale",
+   "class",
+   "certainty",
+   "strike",
+   "fault_leng",
+   "cooperator",
+   "earthquake",
+   "review_dat",
+   "fault_url",
+   "symbology",
+   "ref_id",
+   "Shape_Leng"
+  ],
+  "within_50km_of_sf": 1692,
+  "age_within_50km": {
+   "latest Quaternary": 630,
+   "historic": 547,
+   "undifferentiated Quaternary": 405,
+   "late Quaternary": 110
+  },
+  "named_faults_within_50km": {
+   "Hayward fault zone": 340,
+   "San Andreas fault zone": 315,
+   "Rodgers Creek fault": 133,
+   "Green Valley fault": 118,
+   "Calaveras fault zone": 101,
+   "West Napa fault": 97,
+   "Concord fault": 75,
+   "San Gregorio fault zone": 62,
+   "Bennett Valley fault zone": 35,
+   "Serra fault zone": 34,
+   "Greenville fault zone": 33,
+   "Monte Vista-Shannon fault zone": 33,
+   "Cordelia fault zone": 29,
+   "Chabot fault": 28,
+   "Unnamed fault in California": 21
+  },
+  "intersecting_sf": {},
+  "nearest_holocene_faults_km_from_sf": {
+   "Serra fault zone": 2.2,
+   "San Andreas fault zone": 4.0,
+   "Hayward fault zone": 11.1,
+   "San Gregorio fault zone": 19.0,
+   "Calaveras fault zone": 26.0,
+   "Pleasanton fault": 30.7,
+   "Rodgers Creek fault": 32.2,
+   "Concord fault": 32.3
+  }
+ },
+ "census": {
+  "sf_county": {
+   "rows": 1,
+   "crs": "EPSG:4269",
+   "geometry_types": {
+    "MultiPolygon": 1
+   },
+   "invalid": 0,
+   "empty": 0,
+   "null_geometry": 0,
+   "bounds": [
+    -123.01392,
+    37.69274,
+    -122.32802,
+    37.86306
+   ],
+   "columns": [
+    "STATEFP",
+    "COUNTYFP",
+    "COUNTYNS",
+    "GEOIDFQ",
+    "GEOID",
+    "NAME",
+    "NAMELSAD",
+    "STUSPS",
+    "STATE_NAME",
+    "LSAD",
+    "ALAND",
+    "AWATER"
+   ]
+  },
+  "tracts": {
+   "rows": 242,
+   "crs": "EPSG:4269",
+   "geometry_types": {
+    "Polygon": 240,
+    "MultiPolygon": 2
+   },
+   "invalid": 0,
+   "empty": 0,
+   "null_geometry": 0,
+   "bounds": [
+    -123.01392,
+    37.69274,
+    -122.32802,
+    37.86306
+   ],
+   "columns": [
+    "STATEFP",
+    "COUNTYFP",
+    "TRACTCE",
+    "GEOIDFQ",
+    "GEOID",
+    "NAME",
+    "NAMELSAD",
+    "STUSPS",
+    "NAMELSADCO",
+    "STATE_NAME",
+    "LSAD",
+    "ALAND",
+    "AWATER"
+   ],
+   "key_fields": {
+    "GEOID": {
+     "dtype": "str",
+     "nulls": 0,
+     "unique": 242,
+     "sample": [
+      "06075033201",
+      "06075021400",
+      "06075022704",
+      "06075021100",
+      "06075030102"
+     ]
+    }
+   }
+  },
+  "acs": {
+   "rows": 244,
+   "columns": [
+    "GEO_ID",
+    "B01003_E001",
+    "B01003_M001",
+    "B25003_E001",
+    "B25003_E002",
+    "B25003_E003",
+    "B25003_M001",
+    "B25003_M002",
+    "B25003_M003",
+    "B25010_E001",
+    "B25010_E002",
+    "B25010_E003",
+    "B25010_M001",
+    "B25010_M002",
+    "B25010_M003"
+   ],
+   "not_in_tract_polygons": [
+    "1400000US06075990100",
+    "1400000US06075990200"
+   ],
+   "sentinel_negative_rows": [
+    "1400000US06075012203",
+    "1400000US06075012302",
+    "1400000US06075012403",
+    "1400000US06075012404",
+    "1400000US06075012502",
+    "1400000US06075017903",
+    "1400000US06075033204",
+    "1400000US06075980200",
+    "1400000US06075980300",
+    "1400000US06075980401",
+    "1400000US06075980501",
+    "1400000US06075990100",
+    "1400000US06075990200"
+   ],
+   "total_population": 830235,
+   "occupied_units": 363970,
+   "renter_units": 224913,
+   "avg_hh_size_valid": {
+    "count": 240.0,
+    "mean": 2.25,
+    "std": 0.61,
+    "min": 1.26,
+    "25%": 1.79,
+    "50%": 2.12,
+    "75%": 2.61,
+    "max": 4.11
+   }
+  },
+  "analysis_neighborhoods": {
+   "rows": 41,
+   "crs": "EPSG:4326",
+   "geometry_types": {
+    "MultiPolygon": 41
+   },
+   "invalid": 0,
+   "empty": 0,
+   "null_geometry": 0,
+   "bounds": [
+    -122.51495,
+    37.70813,
+    -122.35697,
+    37.8333
+   ],
+   "columns": [
+    "nhood"
+   ],
+   "key_fields": {
+    "nhood": {
+     "dtype": "str",
+     "nulls": 0,
+     "unique": 41,
+     "sample": [
+      "Lakeshore",
+      "Financial District/South Beach",
+      "Inner Sunset",
+      "South of Market",
+      "Pacific Heights"
+     ]
+    }
+   }
+  }
+ }
+}
