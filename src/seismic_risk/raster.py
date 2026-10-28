@@ -46,7 +46,7 @@ def zonal(footprints_4326, path=SHAKEMAP_TIF):
     out = {}
     with rasterio.open(path) as r:
         names = list(r.descriptions)
-        for band in ZONAL_BANDS:
+        for band in [b for b in ZONAL_BANDS if b in names]:
             stats = zonal_stats(footprints_4326, str(path), band=names.index(band) + 1,
                                 stats=["mean", "max", "count"], all_touched=True, nodata=r.nodata)
             out[f"{band}_zonal_mean"] = [s["mean"] for s in stats]

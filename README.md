@@ -5,7 +5,46 @@ garages or storefronts, the kind that collapsed in the Marina in 1989. The city 
 since 2013. I wanted to see where they sit under the USGS HayWired scenario, a M7.0 earthquake on the Hayward Fault,
 and how many of the ones facing the hardest shaking and the worst ground still haven't been retrofitted.
 
-This is a work in progress. Step 1, the data inventory, is in `docs/data_inventory.md`.
+This is a work in progress. The data inventory is in `docs/data_inventory.md` and the pipeline and scoring are in
+`docs/methodology.md`. The findings write-up and the web map come next.
+
+## What I've found so far
+
+Of the 4,957 buildings on the list, 240 still aren't retrofitted. Under the HayWired scenario the soft-story
+buildings see MMI 6.2 to 7.3, which is strong to very strong shaking. 777 of them sit in a state-mapped liquefaction
+zone. The top 20% by my index hold about 10,000 apartments and an estimated 19,000 people, and the Marina and the
+Mission have the most.
+
+The surprise was the shaking map. I expected bay fill to shake harder than the hills, and in the HayWired ShakeMap
+it doesn't. The site and rock versions of the grid are identical over SF, and the cells are about 1.5 km across, so
+the shaking can't tell a block of fill from the bedrock ridge next to it. In this analysis the fill shows up through
+liquefaction instead. It also means the choice of shaking metric moves the ranking more than any of the weights do.
+
+## Method
+
+I join the soft-story list to the assessor roll and building footprints through block/lot. Condo conversions retire
+the building's original lot, so for those I go through DataSF's parcel layer, and that gets 99.98% of buildings
+matched. Each building gets the ShakeMap values at its footprint, whether it touches a CGS liquefaction or landslide
+zone, and HayWired's liquefaction probability. The score is a weighted average of shaking, ground failure,
+vulnerability (tier, age, units) and retrofit status. The weights live in `config/score.toml`, and I rerun it five
+other ways to see how much the ranking depends on them. Everything is in EPSG:7131, the San Francisco low-distortion
+projection.
+
+## Limitations
+
+HayWired is one possible earthquake, not a forecast. A San Andreas event would shake the west side of the city much
+harder.
+
+The ShakeMap is coarse and has no site amplification of its own, so shaking differences between buildings are
+mostly about which 1.5 km cell they're in.
+
+The soft-story list covers one building type. Plenty of other buildings in SF are vulnerable and aren't in this
+analysis.
+
+The score is a ranking index. It isn't a damage or casualty estimate, and a high score doesn't mean a building will
+fail.
+
+Assessor year built can reflect remodels, and resident estimates assume every unit is occupied.
 
 ## Data
 
@@ -14,6 +53,7 @@ This is a work in progress. Step 1, the data inventory, is in `docs/data_invento
 | Soft-Story Properties | [DataSF `beah-shgi`](https://data.sf.gov/d/beah-shgi) | Tier, compliance status, parcel, point |
 | Assessor Historical Secured Property Tax Rolls | [DataSF `wv5m-vpq2`](https://data.sf.gov/d/wv5m-vpq2) | Roll years 2020 to 2025 downloaded |
 | Building Footprints | [DataSF `ynuv-fyni`](https://data.sf.gov/d/ynuv-fyni) | Footprints keyed to block/lot |
+| Parcels – Active and Retired | [DataSF `acdm-wktn`](https://data.sf.gov/d/acdm-wktn) | Condo lot groups (`mapblklot`) |
 | Analysis Neighborhoods | [DataSF `j2bu-swwd`](https://data.sf.gov/d/j2bu-swwd) | 41 neighborhoods |
 | HayWired M7.05 ShakeMap | [USGS ShakeMap `ushaywiredm7.05_se` v33](https://earthquake.usgs.gov/scenarios/eventpage/ushaywiredm7.05_se) | MMI, PGA, PGV, PSA 0.3/1.0/3.0 s |
 | HayWired expanded liquefaction probability | [USGS data release, Jones 2019](https://doi.org/10.5066/P94HDTD8) | Probability classes, Bay Area wide |
@@ -48,7 +88,13 @@ the Seismic Hazards Mapping Act of 1990.
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt && .venv/bin/pip install -e .
 source .venv/bin/activate
 python -m seismic_risk.download                      # ~1.3 GB into data/raw/
-python -m seismic_risk.shakemap_tif                  # grid.xml -> data/interim/haywired_shakemap.tif
-python -m seismic_risk.inventory > docs/data_inventory.json
+python -m seismic_risk.inventory > docs/data_inventory.json   # after shakemap_tif
+python -m seismic_risk                               # the whole pipeline, about a minute
 python -m pytest
 ```
+
+Or `make setup download pipeline test`. `python -m seismic_risk score analyze` reruns just those steps, which is
+all you need after changing `config/score.toml`.
+
+Outputs land in `data/processed/`: `buildings_seismic.parquet` (one row per soft-story building, with every input,
+component and variant score), `neighborhood_summary.csv` and `tract_summary.csv`.

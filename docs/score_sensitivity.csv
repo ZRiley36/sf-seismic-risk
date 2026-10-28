@@ -1,0 +1,6 @@
+variant,spearman_vs_base,top_992_overlap_pct,top_50_overlap,median_rank_shift,unretrofitted_in_top
+hazard_heavy,0.972,91.8,21,120,124
+retrofit_heavy,0.993,96.4,49,76,240
+equal,0.996,98.0,49,50,209
+psa03,0.774,88.0,46,546,203
+no_tier,0.989,97.5,48,134,215

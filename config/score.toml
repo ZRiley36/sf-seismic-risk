@@ -1,0 +1,67 @@
+# Exposure and vulnerability index for SF soft-story buildings under the HayWired M7.05 scenario.
+# This is a ranking index, not an engineering damage estimate. Every component is scaled 0-1 and
+# the score is the weighted average of the components, so it also runs 0-1.
+
+# Buildings at or above this quantile of the base score count as "high score" in the aggregates.
+high_score_quantile = 0.8
+
+[weights]
+shaking = 0.30
+ground_failure = 0.25
+vulnerability = 0.20
+retrofit = 0.25
+
+[shaking]
+metric = "MMI"
+# Bin edges and the score for each bin (one more score than edges). Soft-story buildings span
+# MMI 6.2-7.3, so these bins split them three ways.
+[shaking.bins.MMI]
+edges = [6.0, 6.5, 7.0, 7.5]
+scores = [0.0, 0.25, 0.5, 0.75, 1.0]
+# Alternative metric for the sensitivity check: 0.3 s spectral acceleration in %g, which is
+# closer to how short wood-frame buildings respond. Soft-story buildings span about 41-77 %g.
+[shaking.bins.PSA03]
+edges = [40.0, 55.0, 70.0, 85.0]
+scores = [0.0, 0.25, 0.5, 0.75, 1.0]
+
+[ground_failure]
+# The component is the largest of these that applies.
+cgs_liquefaction_zone = 1.0
+cgs_landslide_zone = 1.0
+# Outside a zone, HayWired liquefaction probability (class midpoint, %) scaled so that this value
+# or more scores 1.0. 25% is the top of SF's main fill class.
+liq_prob_full_score_pct = 25.0
+
+[vulnerability]
+# Sub-weights inside the vulnerability component.
+weights = { tier = 0.4, age = 0.4, units = 0.2 }
+# Tier 1: assembly, schools, care. Tier 2: 15+ units. Tier 4: ground-floor commercial or in a
+# mapped liquefaction zone (so tier 4 partly overlaps ground_failure, see the no_tier variant).
+tier_scores = { 1 = 1.0, 2 = 0.75, 3 = 0.5, 4 = 0.75 }
+# Year built: before 1920, 1920-1949, 1950-1977, 1978 and later.
+age_edges = [1920, 1950, 1978]
+age_scores = [1.0, 0.75, 0.5, 0.25]
+unknown_age_score = 0.5
+# Units, as consequence: log scale from 1 unit (0) to this many units or more (1).
+units_full_score = 50
+unknown_units_score = 0.5
+
+[retrofit]
+not_retrofitted = 1.0
+retrofitted = 0.0
+
+# Sensitivity variants. Each overrides only what it names.
+[variants.hazard_heavy]
+weights = { shaking = 0.40, ground_failure = 0.35, vulnerability = 0.15, retrofit = 0.10 }
+
+[variants.retrofit_heavy]
+weights = { shaking = 0.20, ground_failure = 0.20, vulnerability = 0.20, retrofit = 0.40 }
+
+[variants.equal]
+weights = { shaking = 0.25, ground_failure = 0.25, vulnerability = 0.25, retrofit = 0.25 }
+
+[variants.psa03]
+shaking_metric = "PSA03"
+
+[variants.no_tier]
+vulnerability_weights = { tier = 0.0, age = 0.4, units = 0.2 }
