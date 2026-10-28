@@ -74,7 +74,7 @@ def soft_story():
     g = gpd.GeoDataFrame(ss, geometry=pts)
     out = vector_summary(g.dropna(subset=["point"]), ["block", "lot", "parcel_number", "tier", "status"])
     out["rows"] = int(len(ss))
-    out["no_coordinates"] = ss.loc[ss.point.isna(), ["parcel_number", "property_address"]].to_dict("records")
+    out["no_coordinates"] = ss.loc[ss.point.isna(), "parcel_number"].tolist()
     out["tier"] = ss.tier.value_counts().to_dict()
     out["status"] = ss.status.value_counts(dropna=False).to_dict()
     out["status_by_tier"] = pd.crosstab(ss.tier, ss.status.str.lower()).to_dict()
@@ -178,8 +178,8 @@ def parcel_joins(ss, a, fp, p):
         "soft_story_to_footprint_mblr_normalized": round(float(ss_pn.isin(fp_set).mean()) * 100, 2),
         "footprints_in_sf_to_assessor_latest": round(float(fp_pn[fp.mblr.str.startswith("SF")]
                                                            .isin(a_pn).mean()) * 100, 2),
-        "soft_story_unmatched_assessor_latest_sample": ss.loc[~ss_pn.isin(a_pn), ["parcel_number", "property_address"]]
-        .head(15).to_dict("records"),
+        "soft_story_unmatched_assessor_latest_sample": ss.loc[~ss_pn.isin(a_pn), "parcel_number"]
+        .head(15).tolist(),
         "soft_story_unmatched_assessor_latest_count": int((~ss_pn.isin(a_pn)).sum()),
         "soft_story_unmatched_footprint_count": int((~ss_pn.isin(fp_set)).sum()),
     }
@@ -196,8 +196,7 @@ def parcel_joins(ss, a, fp, p):
     recovered = ~direct & spatial.reindex(ss.index, fill_value=False)
     out["soft_story_recovered_via_parcel_polygon"] = int(recovered.sum())
     out["soft_story_to_assessor_latest_any_route"] = round(float((direct | recovered).mean()) * 100, 2)
-    out["soft_story_still_unmatched"] = ss.loc[~(direct | recovered), ["parcel_number", "property_address"]] \
-        .to_dict("records")
+    out["soft_story_still_unmatched"] = ss.loc[~(direct | recovered), "parcel_number"].tolist()
     return out
 
 

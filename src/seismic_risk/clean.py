@@ -34,8 +34,7 @@ def soft_story():
     g["retrofitted"] = g.status_clean == "retrofitted"
     g["tier"] = g.tier.astype(int)
     dup = g.drop(columns=["ss_id"]).duplicated()
-    log(f"soft story: dropped {dup.sum()} exact duplicate row(s): "
-        f"{g.loc[dup, 'property_address'].tolist()}")
+    log(f"soft story: dropped {dup.sum()} exact duplicate row(s)")
     g = g[~dup].copy()
     g["parcel_rows"] = g.groupby("pn").pn.transform("size")
     log(f"soft story: {len(g):,} buildings, status {g.status_clean.value_counts().to_dict()}, "

@@ -184,7 +184,7 @@ def main():
     b.loc[fill, "geometry"] = b.loc[fill, "footprint"].representative_point()
     b.loc[fill, "loc_match"] = "footprint"
     if fill.any():
-        log(f"location filled from footprint: {fill.sum()} ({', '.join(b.loc[fill, 'property_address'])})")
+        log(f"location filled from footprint: {fill.sum()}")
 
     b = attach_areas(b)
     log(f"neighborhood assigned: {b.nhood.notna().sum():,}, tract assigned: {b.tract.notna().sum():,}")

@@ -18,7 +18,6 @@ from shapely.geometry import Point, shape
 
 from seismic_risk.config import GEOGRAPHIC, LIQ_PROB, RAW, interim
 
-ADDRESSES = ["2258 MASON ST", "1360 TAYLOR ST", "1625 EDDY ST"]
 SEED = 7
 
 
@@ -32,7 +31,8 @@ def raw_grid():
 def main():
     b = gpd.read_parquet(interim("05_buildings_hazards"))
     picks = pd.concat([
-        b[b.property_address.isin(ADDRESSES)],
+        b[b.rows_on_group > 1].nlargest(1, "units"),  # the biggest shared-parcel case
+        b[~b.retrofitted & b.cgs_liquefaction].sample(1, random_state=SEED),
         b[b.cgs_liquefaction].sample(2, random_state=SEED),
         b[b.cgs_landslide].sample(1, random_state=SEED),
         b[~b.retrofitted].sample(2, random_state=SEED),
@@ -52,7 +52,7 @@ def main():
         lots = a[a.parcel_number.isin(r.parcel_lots)]
         lp_hit = lp[lp.contains(pt)].Reclass.tolist()
         rows.append({
-            "address": r.property_address, "tier": r.tier, "status": r.status_clean, "lon": round(p.x, 5),
+            "ss_id": r.ss_id, "tier": r.tier, "status": r.status_clean, "lon": round(p.x, 5),
             "lat": round(p.y, 5),
             "MMI pipeline": round(r.MMI, 2), "MMI raw node": node[4],
             "PGA pipeline": round(r.PGA, 2), "PGA raw node": node[2],

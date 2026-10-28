@@ -51,14 +51,14 @@ Island and the Farallones. Faults aren't clipped. Everything within 100 km is ke
 
 ## Building table
 
-There's one row per soft-story building, meaning a row of the DataSF list. The one exact duplicate (735 Mason St)
+There's one row per soft-story building, meaning a row of the DataSF list. The one exact duplicate row
 is dropped, which leaves **4,957 buildings**.
 
 **Location.** 4,953 buildings use the DataSF point. Three without a point get the representative point of their
-parcel polygon, once their unpadded parcel numbers are fixed. 668 Page St has no point and no current parcel
+parcel polygon, once their unpadded parcel numbers are fixed. The fourth has no point and no current parcel
 polygon, so it's placed by the footprint on its lot.
 
-Parcel IDs come from `parcel_number` first and block + lot second. The two disagree on exactly one row (845 Lake St),
+Parcel IDs come from `parcel_number` first and block + lot second. The two disagree on exactly one row,
 and the point and the 2025 roll both back up `parcel_number`.
 
 **Parcel groups.** A building's parcel group is its own lot plus every active lot sharing a `mapblklot` with it or
@@ -81,8 +81,8 @@ built is 1922, the median is 8 units, and most are 3 stories. The footprints' me
 that. 32 buildings show a year built of 1978 or later. The assessor's year built "can be blend of original and newer
 construction", so those are probably remodel dates, and I left them alone.
 
-Several soft-story rows can share a parcel. Four Eddy, Turk and Pierce Street buildings all sit on `0751001`, which
-has 111 units. Neighborhood totals use `units_alloc`, the group's units divided evenly among its rows, so no unit is
+Several soft-story rows can share a parcel. In one case, four buildings on four different streets
+share a lot with 111 units. Neighborhood totals use `units_alloc`, the group's units divided evenly among its rows, so no unit is
 counted twice. 97 buildings have 0 or missing units.
 
 **Footprints.** The pipeline prefers a footprint on the building's own parcel group:
@@ -126,7 +126,7 @@ counts. This catches more buildings than the point alone:
 
 HayWired liquefaction probability is the highest class any part of the footprint touches, stored as the class's
 low, high and midpoint percent. The two layers agree well. The median midpoint is 22.5% inside CGS liquefaction
-zones and 2.5% outside. They don't agree everywhere, though. 2245 Beach St in the Marina is inside a CGS zone but
+zones and 2.5% outside. They don't agree everywhere, though. One Marina building is inside a CGS zone but
 in HayWired's <5% class.
 
 ## Fault context
@@ -196,10 +196,10 @@ units and about 19,000 residents. The Marina and the Mission lead on units in hi
 
 ## Checks
 
-`spotcheck.py` re-derives eight buildings straight from the raw files, without the pipeline's code: the nearest
+`spotcheck.py` re-derives seven buildings straight from the raw files, without the pipeline's code: the nearest
 grid.xml node, point-in-polygon against the raw CGS GeoJSON and liquefaction shapefile, and the raw roll CSV. All
-eight agree on shaking, zones, units and year built. The sample includes a shared-parcel building, a non-compliant
-building in a liquefaction zone (2258 Mason St), and a landslide-zone building on Twin Peaks.
+seven agree on shaking, zones, units and year built. The sample includes a shared-parcel building, a non-compliant
+building in a liquefaction zone, and a landslide-zone building on Twin Peaks.
 
 `pytest` covers parcel-ID normalization, raster sampling (known pixels give known values, edge cases, and the
 grid.xml cell-center conversion), and the score (each component by hand, a full score by hand, bounds and variant

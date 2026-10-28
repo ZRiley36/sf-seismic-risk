@@ -50,7 +50,7 @@ def sf_boundary():
 def soft_story():
     ss = pd.read_csv(RAW / "soft_story/soft_story_beah-shgi.csv", dtype=str)
     ss = ss[["block", "lot", "parcel_number", "property_address", "tier", "status", "point", "data_as_of"]]
-    # parcel_number wins over block + lot: they disagree on one row (845 Lake St), and the
+    # parcel_number wins over block + lot: they disagree on one row, and the
     # parcel_number version is the one the point and the assessor roll agree with.
     pn = [normalize_parcel(p) or normalize_block_lot(b, l)
           for b, l, p in zip(ss.block, ss.lot, ss.parcel_number)]

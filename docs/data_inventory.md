@@ -63,9 +63,9 @@ suffix (`018A`). `parcel_number` is block plus lot for 4,957 of 4,958 rows. Thre
 parcel numbers are 6 digits (`1702` + `43` = `170243` instead of `1702043`). Those three are also three of the four
 rows with no point, which is probably why the portal couldn't geocode them.
 
-**Rows aren't parcels.** 84 rows share 27 parcels, usually because one lot has several addresses (four Eddy, Turk
-and Pierce addresses all sit on `0751001`). Rows on the same parcel share one point, so the points are parcel
-locations and not building locations. One row is an exact duplicate (735 Mason St).
+**Rows aren't parcels.** 84 rows share 27 parcels, usually because one lot has several addresses (in one case,
+four buildings on four different streets share a lot). Rows on the same parcel share one point, so the points are parcel
+locations and not building locations. One row is an exact duplicate.
 
 ## 2. Assessor Historical Secured Property Tax Rolls (`wv5m-vpq2`)
 
@@ -276,7 +276,7 @@ is tested in `tests/test_parcels.py`. The differences between sources are small:
 The 47 soft-story parcels missing from the 2025 roll are mostly condo conversions. For 34 of them, the same block
 has 2025 parcels at the same street number classed as condominiums. Going through the parcel layer (soft-story
 point → active parcel polygon → its `mapblklot` group → 2025 roll) recovers 46 of the 47. The only one left is
-668 Page St, which has no point but appears in the 2022 roll.
+one of the rows with no point, and it appears in the 2022 roll.
 
 For condo buildings, the pipeline will need to sum units across the condo group and take year built from the group,
 since no single condo parcel describes the whole building.

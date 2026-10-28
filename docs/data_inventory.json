@@ -241,22 +241,10 @@
    }
   },
   "no_coordinates": [
-   {
-    "parcel_number": "170243",
-    "property_address": "1230 LA PLAYA *"
-   },
-   {
-    "parcel_number": "121310",
-    "property_address": "2267 HAYES ST"
-   },
-   {
-    "parcel_number": "0843015",
-    "property_address": "668 PAGE ST"
-   },
-   {
-    "parcel_number": "161820",
-    "property_address": "2525 BALBOA ST"
-   }
+   "170243",
+   "121310",
+   "0843015",
+   "161820"
   ],
   "tier": {
    "3": 3408,
@@ -614,76 +602,28 @@
   "soft_story_to_footprint_mblr_normalized": 98.49,
   "footprints_in_sf_to_assessor_latest": 97.65,
   "soft_story_unmatched_assessor_latest_sample": [
-   {
-    "parcel_number": "1188001",
-    "property_address": "17 ASHBURY ST"
-   },
-   {
-    "parcel_number": "3585094",
-    "property_address": "3822 19TH ST"
-   },
-   {
-    "parcel_number": "0493025",
-    "property_address": "1849 CHESTNUT ST"
-   },
-   {
-    "parcel_number": "1069039",
-    "property_address": "2 LUPINE AV"
-   },
-   {
-    "parcel_number": "3568035",
-    "property_address": "178 ALBION ST"
-   },
-   {
-    "parcel_number": "0779020",
-    "property_address": "950 STEINER ST"
-   },
-   {
-    "parcel_number": "1364034",
-    "property_address": "124 05TH AV"
-   },
-   {
-    "parcel_number": "7535100",
-    "property_address": "1 GOLD MINE DR"
-   },
-   {
-    "parcel_number": "1117001",
-    "property_address": "1050 BAKER ST"
-   },
-   {
-    "parcel_number": "3755111",
-    "property_address": "172 LANGTON ST"
-   },
-   {
-    "parcel_number": "1159001",
-    "property_address": "747 LYON ST"
-   },
-   {
-    "parcel_number": "0852003",
-    "property_address": "100 HAIGHT ST"
-   },
-   {
-    "parcel_number": "0497007A",
-    "property_address": "1580 LOMBARD ST"
-   },
-   {
-    "parcel_number": "2831001",
-    "property_address": "1200 CASTRO ST"
-   },
-   {
-    "parcel_number": "1521013",
-    "property_address": "471 23RD AV"
-   }
+   "1188001",
+   "3585094",
+   "0493025",
+   "1069039",
+   "3568035",
+   "0779020",
+   "1364034",
+   "7535100",
+   "1117001",
+   "3755111",
+   "1159001",
+   "0852003",
+   "0497007A",
+   "2831001",
+   "1521013"
   ],
   "soft_story_unmatched_assessor_latest_count": 47,
   "soft_story_unmatched_footprint_count": 75,
   "soft_story_recovered_via_parcel_polygon": 46,
   "soft_story_to_assessor_latest_any_route": 99.98,
   "soft_story_still_unmatched": [
-   {
-    "parcel_number": "0843015",
-    "property_address": "668 PAGE ST"
-   }
+   "0843015"
   ]
  },
  "shakemap": {
