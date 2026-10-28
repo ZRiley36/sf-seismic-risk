@@ -8,7 +8,7 @@ import time
 import warnings
 
 from seismic_risk import (analyze, clean, hazards, ingest, join, outputs, raster, score, shakemap_tif,
-                          spotcheck)
+                          spotcheck, web_export)
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 warnings.filterwarnings("ignore", category=FutureWarning)
@@ -23,6 +23,7 @@ STEPS = {
     "score": score.main,
     "analyze": analyze.main,
     "outputs": outputs.main,
+    "web": web_export.main,
     "spotcheck": spotcheck.main,
 }
 

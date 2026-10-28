@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SF Soft-Story Seismic Risk</title>
+  <meta name="description" content="San Francisco soft-story buildings under the USGS HayWired M7 Hayward Fault scenario: shaking, ground failure and retrofit status.">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M1 9h3l2-6 3 10 2-6 1 2h3' fill='none' stroke='%23c4401b' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E">
+</head>
+<body>
+  <div id="map" role="region" aria-label="Map of San Francisco soft-story buildings and HayWired scenario hazards"></div>
+
+  <aside id="panel">
+    <header>
+      <h1>SF Soft-Story Seismic Risk</h1>
+      <p class="lede">San Francisco's soft-story apartment buildings under a <strong>M7.0 Hayward Fault earthquake</strong>
+        (the USGS HayWired scenario), and which ones still haven't been retrofitted.</p>
+      <a class="guide-link" href="guide.html" target="_blank" rel="noopener">How to read this map: data, method &amp; glossary ↗</a>
+      <button id="collapse" aria-expanded="true" aria-controls="panel-body" title="Collapse panel">
+        <span aria-hidden="true">▾</span><span class="sr">Toggle panel</span></button>
+      <form id="search" role="search" autocomplete="off">
+        <label for="q" class="sr">Search soft-story buildings by address</label>
+        <input id="q" type="search" placeholder="Find a soft-story building, e.g. 1625 Eddy St"
+               role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="results">
+        <ul id="results" role="listbox" hidden></ul>
+        <p id="search-status" class="search-status" aria-live="polite"></p>
+      </form>
+    </header>
+
+    <div id="panel-body">
+      <section class="stats" aria-label="Headline numbers">
+        <div class="stat"><span class="value" id="s-buildings">–</span>
+          <span class="label">soft-story buildings (<span id="s-pct-retro">–</span>% retrofitted)</span></div>
+        <div class="stat"><span class="value" id="s-unretro">–</span>
+          <span class="label">still not retrofitted</span></div>
+        <div class="stat"><span class="value" id="s-liq">–</span>
+          <span class="label">in a state liquefaction zone</span></div>
+        <div class="stat"><span class="value" id="s-high-res">–</span>
+          <span class="label">est. residents in the top 20% by risk score</span></div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Buildings</h2>
+        <div class="legend ramp" id="legend-score" aria-label="Risk score color scale"></div>
+        <p class="hint">Risk score, 0 to 1 (higher means more hazard and vulnerability factors).</p>
+        <ul class="legend keys">
+          <li><span class="swatch ring"></span>Not retrofitted (black ring)</li>
+        </ul>
+        <label class="check"><input type="checkbox" id="only-unretro"> Show only buildings not retrofitted</label>
+        <label class="check"><input type="checkbox" id="only-high"> Show only the top 20% by score</label>
+      </section>
+
+      <section>
+        <h2 class="section-title">Hazard layers</h2>
+        <label class="check"><input type="checkbox" id="lyr-shaking" checked>
+          <span class="swatch" style="--c: var(--mmi-3)"></span>Shaking (MMI), HayWired ShakeMap cells</label>
+        <div class="legend ramp small" id="legend-mmi" aria-label="Shaking intensity color scale"></div>
+        <label class="check"><input type="checkbox" id="lyr-liq" checked>
+          <span class="swatch hatch liq"></span>Liquefaction zone (CGS)</label>
+        <label class="check"><input type="checkbox" id="lyr-ls" checked>
+          <span class="swatch hatch ls"></span>Landslide zone (CGS)</label>
+        <label class="check"><input type="checkbox" id="lyr-faults" checked>
+          <span class="swatch line"></span>Active faults · <span class="star" aria-hidden="true">★</span> HayWired epicenter</label>
+      </section>
+
+      <section>
+        <label class="section-title" for="metric">Neighborhood shading</label>
+        <select id="metric">
+          <option value="off">Off</option>
+          <option value="units_in_high_score">Units in top-20% buildings</option>
+          <option value="est_residents_in_high_score">Est. residents in top-20% buildings</option>
+          <option value="unretrofitted">Buildings not retrofitted</option>
+          <option value="in_cgs_liquefaction_zone">Buildings in a liquefaction zone</option>
+        </select>
+        <div id="legend-nta" class="legend ramp" aria-live="polite"></div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Top neighborhoods</h2>
+        <table id="top-table" aria-describedby="top-caption">
+          <caption id="top-caption" class="sr">Top neighborhoods by the selected measure</caption>
+          <thead><tr><th scope="col">Neighborhood</th><th scope="col" class="num" id="top-metric">Value</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <details class="about">
+        <summary>About the data</summary>
+        <p><strong>Shaking</strong>: USGS ShakeMap for the HayWired M7.05 scenario. Its cells are about 1.5 by 1.85 km,
+          and it doesn't model local soil effects, so shaking here doesn't separate bay fill from bedrock.</p>
+        <p><strong>Risk score</strong>: an index of shaking, ground failure, building vulnerability and retrofit status.
+          It ranks buildings. It isn't a damage estimate.</p>
+        <p>Sources: DataSF (soft-story list, assessor roll, footprints, parcels, neighborhoods), USGS (HayWired,
+          faults), California Geological Survey, US Census. Basemap © OpenFreeMap, © OpenStreetMap contributors.</p>
+      </details>
+    </div>
+  </aside>
+
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

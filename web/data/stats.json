@@ -1,0 +1,40 @@
+{
+ "buildings": 4957,
+ "retrofitted": 4717,
+ "unretrofitted": 240,
+ "non_compliant": 228,
+ "newly_added": 12,
+ "pct_retrofitted": 95.2,
+ "in_liquefaction": 777,
+ "in_landslide": 47,
+ "unretro_in_liquefaction": 47,
+ "units": 49086,
+ "residents": 93301,
+ "unretro_units": 2422,
+ "unretro_residents": 4767,
+ "high_cut": 0.501,
+ "high_buildings": 993,
+ "high_units": 10166,
+ "high_residents": 19048,
+ "high_unretrofitted": 205,
+ "mmi_min": 6.23,
+ "mmi_max": 7.3,
+ "mmi7_buildings": 2023,
+ "cells": 43,
+ "pct_unretro_mmi7": 4.1,
+ "pct_unretro_below7": 5.4,
+ "pct_unretro_liq": 6.0,
+ "pct_unretro_not_liq": 4.6,
+ "hayward_km_min": 15.5,
+ "hayward_km_max": 26.9,
+ "epicenter": [
+  -122.1786,
+  37.8046
+ ],
+ "weights": {
+  "shaking": 0.3,
+  "ground_failure": 0.25,
+  "vulnerability": 0.2,
+  "retrofit": 0.25
+ }
+}

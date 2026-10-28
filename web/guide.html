@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Soft-Story Risk Guide</title>
+  <meta name="description" content="How to read the SF soft-story seismic risk map: the data, the method, and what every term means.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M1 9h3l2-6 3 10 2-6 1 2h3' fill='none' stroke='%23c4401b' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a class="back" href="index.html">← Back to the map</a>
+      <h1>SF Soft-Story Seismic Risk: guide</h1>
+      <p class="lede">What the map shows, how to use it, where every number comes from, and what each term means.</p>
+    </div>
+  </header>
+
+  <div class="wrap layout">
+    <nav class="toc" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+      <ol>
+        <li><a href="#question">The question</a></li>
+        <li><a href="#findings">Key findings</a></li>
+        <li><a href="#using">Using the map</a></li>
+        <li><a href="#colors">Reading the colors</a></li>
+        <li><a href="#data">The data</a></li>
+        <li><a href="#method">How I calculated it</a></li>
+        <li><a href="#score">The risk score</a></li>
+        <li><a href="#shaking">Why the shaking looks blocky</a></li>
+        <li><a href="#glossary">Glossary</a></li>
+        <li><a href="#limits">Limitations</a></li>
+        <li><a href="#reproduce">Reproducing it</a></li>
+      </ol>
+    </nav>
+
+    <main>
+      <section id="question">
+        <h2>The question</h2>
+        <p><strong>Under a M7.0 Hayward Fault earthquake, which San Francisco soft-story buildings face the worst shaking
+          and ground failure, and how many still haven't been retrofitted?</strong></p>
+        <p>A soft-story building has a weak ground floor, usually garages or storefronts with big openings and few
+          walls, under floors of apartments. In an earthquake that ground floor can rack sideways and collapse. That's
+          what happened to apartment buildings in the Marina in 1989. Since 2013, San Francisco has required wood-frame
+          soft-story buildings with five or more units, built before 1978, to be retrofitted.</p>
+        <p>The earthquake here is the USGS <a href="https://doi.org/10.3133/sir20175013v1" target="_blank" rel="noopener">HayWired
+          scenario</a>, a magnitude 7.05 rupture of the Hayward Fault starting under Oakland (the ★ on the map). It's one
+          plausible earthquake that emergency planners across the Bay Area use. It isn't a forecast.</p>
+      </section>
+
+      <section id="findings">
+        <h2>Key findings</h2>
+        <div class="tiles">
+          <div class="tile"><span class="v" data-stat="buildings">–</span><span class="l">soft-story buildings on the city's list</span></div>
+          <div class="tile"><span class="v" data-stat="unretrofitted">–</span><span class="l">still not retrofitted</span></div>
+          <div class="tile"><span class="v" data-stat="in_liquefaction">–</span><span class="l">in a state-mapped liquefaction zone</span></div>
+          <div class="tile"><span class="v" data-stat="high_residents" data-fmt="round100">–</span><span class="l">estimated residents in the top 20% by risk score</span></div>
+        </div>
+        <p>The retrofit program has mostly worked. <span data-stat="pct_retrofitted" data-fmt="pct1">–</span> of the list has
+          finished, which leaves <span data-stat="unretrofitted">–</span> buildings with about
+          <span data-stat="unretro_residents" data-fmt="round100">–</span> residents.</p>
+        <p>The unfinished ones aren't concentrated where the shaking is worst. <span data-stat="pct_unretro_mmi7" data-fmt="pct1">–</span>
+          of buildings at MMI 7 or higher are unretrofitted, compared with <span data-stat="pct_unretro_below7" data-fmt="pct1">–</span>
+          everywhere else. They're a little more common on liquefiable ground, at <span data-stat="pct_unretro_liq" data-fmt="pct1">–</span>
+          inside the liquefaction zones and <span data-stat="pct_unretro_not_liq" data-fmt="pct1">–</span> outside.</p>
+        <p>Two kinds of neighborhood rise to the top. The Marina, the Mission and South of Market are there because of bad
+          ground: old bay and lagoon fill that can liquefy. The Castro, Hayes Valley and the Haight are there because the
+          scenario's shaking runs strongest through the middle of the city.</p>
+      </section>
+
+      <section id="using">
+        <h2>Using the map</h2>
+        <p>Each dot is a soft-story building. Zoom in past street level and the dots turn into building outlines. Click
+          either one for its details: address, tier, year built, units, the shaking it would get, whether it's on
+          liquefiable or landslide-prone ground, and its risk score with a breakdown of what drove it.</p>
+        <p>The search box finds soft-story buildings by address. It only searches the city's soft-story list, so an
+          address that isn't on the list won't come up. Pick a match and the map zooms to it and opens its details.</p>
+        <p>The side panel has headline numbers, two filters (only buildings that aren't retrofitted, and only the top 20%
+          by score), switches for each hazard layer, and a neighborhood shading menu. The table under it lists the top
+          ten neighborhoods for whatever you're shading by, and clicking a name zooms there. With shading off, the table
+          ranks neighborhoods by units in top-20% buildings.</p>
+        <p>Clicking empty ground with the shaking layer on shows that ShakeMap cell's values. The page address updates as
+          you move, so you can copy it to share the exact view. On a phone the panel sits at the bottom, and ▾ collapses
+          it.</p>
+      </section>
+
+      <section id="colors">
+        <h2>Reading the colors</h2>
+        <h3>Buildings</h3>
+        <ul class="keys">
+          <li><span class="sw" style="--c:linear-gradient(90deg,#fbe3cf,#f5b08f,#eb6834,#c4401b,#7f2a10)"></span><div><strong>Fill color</strong> is
+            the risk score, from pale (below 0.3) to dark red (0.6 and up). The top 20% starts at a score of
+            <span data-stat="high_cut" data-fmt="dec3">–</span>.</div></li>
+          <li><span class="sw ring"></span><div><strong>A black ring</strong> means the building hasn't been retrofitted.
+            Those dots are also drawn bigger. Retrofitted buildings have no ring.</div></li>
+        </ul>
+        <h3>Hazard layers</h3>
+        <ul class="keys">
+          <li><span class="sw" style="--c:linear-gradient(90deg,#f2f0f7,#bcbddc,#756bb1)"></span><div><strong>Purple squares</strong>
+            are the ShakeMap cells, shaded by intensity (MMI): lightest below 6, darkest at 7.5 and above.
+            Each square is one cell, and every building inside it gets the same shaking.</div></li>
+          <li><span class="sw hatch liq"></span><div><strong>Blue hatching</strong> is a California Geological Survey
+            liquefaction zone, where the ground could turn to slurry in strong shaking.</div></li>
+          <li><span class="sw hatch ls"></span><div><strong>Brown hatching</strong> is a CGS landslide zone.</div></li>
+          <li><span class="sw line"></span><div><strong>Dashed lines</strong> are faults that have moved in roughly the last
+            15,000 years. The Hayward Fault runs along the East Bay hills, and the San Andreas runs just offshore of
+            the city's west side.</div></li>
+        </ul>
+        <p>With neighborhood shading on, neighborhoods are tinted blue by the measure you chose. Darker means more.</p>
+      </section>
+
+      <section id="data">
+        <h2>The data</h2>
+        <p>Everything comes from public sources.</p>
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Dataset</th><th scope="col">Publisher</th><th scope="col">How it's used</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Soft-Story Properties</strong><br><span class="id">DataSF beah-shgi, Oct 2026</span></td><td>SF Dept. of Building Inspection</td>
+              <td>The list of buildings, with tier and retrofit status.</td></tr>
+            <tr><td><strong>Assessor tax rolls</strong><br><span class="id">DataSF wv5m-vpq2, 2020 to 2025</span></td><td>SF Assessor-Recorder</td>
+              <td>Year built, units, stories and building class.</td></tr>
+            <tr><td><strong>Parcels, active and retired</strong><br><span class="id">DataSF acdm-wktn</span></td><td>SF Public Works</td>
+              <td>Links buildings that became condos back to their unit lots.</td></tr>
+            <tr><td><strong>Building Footprints</strong><br><span class="id">DataSF ynuv-fyni</span></td><td>DataSF</td>
+              <td>Building outlines, used for sampling and on the map.</td></tr>
+            <tr><td><strong>HayWired ShakeMap</strong><br><span class="id">USGS ushaywiredm7.05_se, v33</span></td><td>USGS</td>
+              <td>Shaking intensity and ground motion for every building.</td></tr>
+            <tr><td><strong>HayWired liquefaction probability</strong><br><span class="id">USGS data release, Jones 2019</span></td><td>USGS</td>
+              <td>Chance the ground liquefies in this scenario.</td></tr>
+            <tr><td><strong>Seismic Hazard Zones</strong><br><span class="id">liquefaction and landslide</span></td><td>California Geological Survey</td>
+              <td>Whether a building is on liquefiable or landslide-prone ground.</td></tr>
+            <tr><td><strong>Quaternary Fault and Fold Database</strong></td><td>USGS</td>
+              <td>Fault lines, shown for context.</td></tr>
+            <tr><td><strong>Census tracts, ACS 2024 5-year</strong></td><td>US Census Bureau</td>
+              <td>Average renter household size, to estimate residents.</td></tr>
+            <tr><td><strong>Analysis Neighborhoods</strong><br><span class="id">DataSF j2bu-swwd</span></td><td>DataSF</td>
+              <td>Neighborhood totals and shading.</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </section>
+
+      <section id="method">
+        <h2>How I calculated it</h2>
+        <p>I put every dataset into NAD83(2011) San Francisco CS13 (EPSG:7131), a projection built for the city, so
+          distances and areas are as accurate as they get here. Then I matched each soft-story building to its tax lot.
+          About 6% of the buildings are now condos, split into one tax lot per unit, and some of their original lot
+          numbers have been retired. For those, I go through the city's parcel map to find the unit lots and add their
+          units back up. That gets <strong>all but one</strong> building matched to the current tax roll, and the last one
+          is in the 2022 roll.</p>
+        <p>Each building gets the ShakeMap values for the cell its footprint sits in. A building counts as in a
+          liquefaction or landslide zone if any part of its footprint touches one. For the HayWired liquefaction
+          probability, it gets the highest class its footprint touches.</p>
+        <p>Estimated residents are the building's units times the average renter household size in its census tract.
+          Nearly all soft-story buildings are rentals. This assumes every unit is occupied, so it runs a little high.</p>
+      </section>
+
+      <section id="score">
+        <h2>The risk score</h2>
+        <p>The score combines four things, each scaled from 0 to 1, into a weighted average. It's a way to rank buildings
+          by how many hazard and vulnerability factors stack up. <strong>It isn't a damage estimate</strong>, and a high
+          score doesn't mean a building will fail.</p>
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Part</th><th scope="col" class="num">Weight</th><th scope="col">How it's scored</th></tr></thead>
+          <tbody>
+            <tr><td>Shaking</td><td class="num">0.30</td><td>MMI in half-point bins: below 6 scores 0, 7.0 to 7.5 scores 0.75, 7.5 and up scores 1</td></tr>
+            <tr><td>Ground failure</td><td class="num">0.25</td><td>1 in a CGS liquefaction or landslide zone. Otherwise the HayWired liquefaction probability, where 25% or more scores 1</td></tr>
+            <tr><td>Vulnerability</td><td class="num">0.20</td><td>Program tier, age (older scores higher) and number of units, averaged</td></tr>
+            <tr><td>Not retrofitted</td><td class="num">0.25</td><td>1 if the retrofit isn't finished, 0 if it is</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>The building popup shows each part as a bar, so you can see why a building ranks where it does.</p>
+        <p>I reran the score five other ways to check how much the weights matter. Shifting the weights around barely
+          changes the order (rank correlation 0.97 or higher). Swapping MMI for 0.3-second spectral acceleration changes it
+          the most (0.77). The full comparison is in the project's <code>docs/methodology.md</code>.</p>
+      </section>
+
+      <section id="shaking">
+        <h2>Why the shaking looks blocky</h2>
+        <p>The ShakeMap is a grid of cells about 1.5 km wide and 1.85 km tall. All of the city's soft-story buildings fall
+          in just <span data-stat="cells">–</span> of them, and every building in a cell gets the same shaking. I show the
+          cells as squares instead of smoothing them, because smoothing would suggest detail the data doesn't have.</p>
+        <p>You might expect the bay fill in the Marina or Mission Bay to shake harder than the bedrock hills. In this
+          ShakeMap it doesn't. Its rock-site and local-soil versions are identical over the city, so it doesn't model local
+          soil effects at all. In this analysis, fill shows up through the liquefaction layers instead. The strongest
+          cells actually run through the middle of the city and along its southwest edge.</p>
+      </section>
+
+      <section id="glossary">
+        <h2>Glossary</h2>
+        <dl class="glossary">
+          <dt id="g-softstory">Soft-story building</dt>
+          <dd>A building whose ground floor is much weaker than the floors above, usually because it's mostly garage doors
+            or shop windows. San Francisco's program covers wood-frame ones with five or more units, built before 1978.</dd>
+
+          <dt id="g-tier">Tier</dt>
+          <dd>The city's compliance group, which set each building's deadline. Tier 1 has schools, assembly and care uses.
+            Tier 2 is 15 or more units. Tier 4 has ground-floor commercial space or sits in a liquefaction zone. Tier 3 is
+            everything else. Tier 4 was the last to come due, in September 2021.</dd>
+
+          <dt id="g-status">Retrofit status</dt>
+          <dd>"Retrofitted" means the city issued a certificate of final completion (CFC). "Non-compliant" is a program
+            status for a building that hasn't finished. "Newly added" buildings are recent additions to the list. I count
+            both of those as not retrofitted.</dd>
+
+          <dt id="g-haywired">HayWired scenario</dt>
+          <dd>A USGS-led planning scenario for a magnitude 7.05 earthquake on the Hayward Fault, centered under Oakland,
+            with the hazards and consequences worked out in detail.</dd>
+
+          <dt id="g-shakemap">ShakeMap</dt>
+          <dd>The USGS product that maps how hard the ground shakes in an earthquake, as a grid of values.</dd>
+
+          <dt id="g-mmi">MMI (Modified Mercalli Intensity)</dt>
+          <dd>Shaking on a I to X scale based on its effects. VI is strong (felt by everyone, some damage to weak
+            buildings). VII is very strong (considerable damage to poorly built structures). VIII is severe.</dd>
+
+          <dt id="g-pga">PGA (peak ground acceleration)</dt>
+          <dd>The strongest acceleration of the ground, as a percent of gravity (% g).</dd>
+
+          <dt id="g-pgv">PGV (peak ground velocity)</dt>
+          <dd>The fastest the ground moves, in centimeters per second.</dd>
+
+          <dt id="g-psa">PSA 0.3 s (spectral acceleration)</dt>
+          <dd>How hard a building that sways back and forth every 0.3 seconds gets pushed, in % g. That's roughly the
+            natural period of a short wood-frame building.</dd>
+
+          <dt id="g-liq">Liquefaction</dt>
+          <dd>When strong shaking makes loose, wet, sandy ground act like a liquid. Buildings on it can sink or tilt. It's
+            most common on artificial fill and old marsh and creek beds.</dd>
+
+          <dt id="g-cgs">CGS Seismic Hazard Zones</dt>
+          <dd>Liquefaction and landslide zones mapped by the California Geological Survey under the Seismic Hazards
+            Mapping Act. They mark where a site investigation is required before building, not where the ground will
+            definitely fail.</dd>
+
+          <dt id="g-liqprob">Liquefaction probability</dt>
+          <dd>From the HayWired study: the chance a spot liquefies in this particular earthquake. Most of SF's fill falls in
+            the 20 to 25% class.</dd>
+
+          <dt id="g-fault">Active fault</dt>
+          <dd>Here, a fault the USGS Quaternary Fault and Fold Database lists as moving historically or in roughly the last
+            15,000 years.</dd>
+
+          <dt id="g-score">Risk score</dt>
+          <dd>This project's 0 to 1 index of shaking, ground failure, vulnerability and retrofit status. See
+            <a href="#score">The risk score</a>.</dd>
+
+          <dt id="g-top20">Top 20%</dt>
+          <dd>The fifth of soft-story buildings with the highest risk scores.</dd>
+
+          <dt id="g-condo">Condo conversion</dt>
+          <dd>When an apartment building's single tax lot is split into one lot per unit. The building's original lot
+            number is retired, which is why some buildings need extra matching.</dd>
+
+          <dt id="g-nhood">Analysis Neighborhood</dt>
+          <dd>One of 41 neighborhoods DataSF uses for reporting.</dd>
+        </dl>
+      </section>
+
+      <section id="limits">
+        <h2>Limitations</h2>
+        <p>HayWired is one earthquake. A San Andreas earthquake would hit the city's west side much harder, and the San
+          Andreas is closer to San Francisco than the Hayward.</p>
+        <p>The ShakeMap is coarse and doesn't model local soil, so shaking differences between buildings mostly come down
+          to which cell they're in.</p>
+        <p>The soft-story list covers one building type. Other vulnerable buildings, like older concrete and unreinforced
+          masonry, aren't on it.</p>
+        <p>The score is an index for ranking. The weights are judgment calls, and changing the shaking measure changes the
+          ranking more than changing the weights does.</p>
+        <p>Retrofit status is a snapshot of the city's list as of October 2026. Assessor year built can reflect remodels,
+          and resident counts are estimates.</p>
+        <p>And to be clear, this isn't an engineering assessment of any building. For that, talk to a licensed structural
+          engineer.</p>
+      </section>
+
+      <section id="reproduce">
+        <h2>Reproducing it</h2>
+        <p>The pipeline is Python (GeoPandas, Shapely, rasterio, rasterstats) and runs end to end in about a minute after a
+          one-time download. The code is on <a href="https://github.com/ZRiley36/sf-seismic-risk" target="_blank" rel="noopener">GitHub</a>.</p>
+<pre><code>make setup download
+make pipeline        # ingest → join → sample hazards → score → summarize → web data
+make test</code></pre>
+        <p>The data inventory, method, sensitivity check and findings are in the project's <code>docs/</code> folder.</p>
+      </section>
+    </main>
+  </div>
+
+  <footer class="wrap foot">Data: DataSF, USGS (HayWired scenario, Detweiler and Wein 2017), California Geological Survey, US Census Bureau.
+    Basemap © OpenFreeMap, © OpenStreetMap contributors.</footer>
+
+  <script>
+    // Fill numbers from the same stats.json the map uses, so the guide never drifts from the data.
+    const FMT = {
+      int: (v) => Math.round(v).toLocaleString(),
+      pct1: (v) => `${v.toFixed(1)}%`,
+      dec3: (v) => v.toFixed(3),
+      round100: (v) => `~${(Math.round(v / 100) * 100).toLocaleString()}`,
+    };
+    fetch("data/stats.json").then((r) => r.json()).then((s) => {
+      document.querySelectorAll("[data-stat]").forEach((el) => {
+        const v = s[el.dataset.stat];
+        if (typeof v === "number") el.textContent = FMT[el.dataset.fmt || "int"](v);
+      });
+    }).catch(() => {});
+  </script>
+</body>
+</html>

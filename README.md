@@ -5,8 +5,12 @@ garages or storefronts, the kind that collapsed in the Marina in 1989. The city 
 since 2013. I wanted to see where they sit under the USGS HayWired scenario, a M7.0 earthquake on the Hayward Fault,
 and how many of the ones facing the hardest shaking and the worst ground still haven't been retrofitted.
 
+Live map: https://zriley36.github.io/sf-seismic-risk/
+
+Guide to the map: https://zriley36.github.io/sf-seismic-risk/guide.html
+
 The findings are in `docs/findings.md`. The data inventory is in `docs/data_inventory.md` and the pipeline and
-scoring are in `docs/methodology.md`. A web map is next.
+scoring are in `docs/methodology.md`.
 
 ## What I've found so far
 
@@ -100,3 +104,11 @@ Outputs land in `data/processed/`: `buildings_seismic.parquet` (one row per soft
 component and variant score), `neighborhood_summary.csv` and `tract_summary.csv`. For the web map, `data/processed/web/` has the ShakeMap cropped to
 SF as a Cloud-Optimized GeoTIFF (native EPSG:4326 grid, MMI in band 1) and the buildings as a 2.6 MB GeoJSON of
 points in EPSG:4326.
+
+## Web map
+`web/` is a static MapLibre GL site with no backend, deployed to GitHub Pages by `.github/workflows/pages.yml` on
+every push that touches `web/`. `python -m seismic_risk web` rebuilds its data in `web/data/` (about 6 MB of GeoJSON
+plus `stats.json`). Each soft-story building is a point colored by risk score, with a black ring if it isn't
+retrofitted, and it turns into its footprint when you zoom in. The ShakeMap cells are drawn as squares so the map
+doesn't pretend to more resolution than the data has. Search only covers addresses on the soft-story list and runs
+in the browser. To preview it locally, run `python -m http.server 8000 --directory web`.

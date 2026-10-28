@@ -24,7 +24,7 @@ about 2,100 units and 4,200 residents.
 
 One thing I didn't expect: **unretrofitted buildings aren't concentrated where the shaking is worst.** 4.1% of
 buildings at MMI 7.0 or higher are unretrofitted, compared with 5.4% everywhere else. They are a little more common
-inside liquefaction zones, at 6.1% compared with 4.6% outside. The program seems to have cleared the shaking
+inside liquefaction zones, at 6.0% compared with 4.6% outside. The program seems to have cleared the shaking
 hotspots about as well as anywhere else, but not the bad ground.
 
 ## Top 10 neighborhoods
