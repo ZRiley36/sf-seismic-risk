@@ -7,7 +7,8 @@ import sys
 import time
 import warnings
 
-from seismic_risk import analyze, clean, hazards, ingest, join, raster, score, shakemap_tif, spotcheck
+from seismic_risk import (analyze, clean, hazards, ingest, join, outputs, raster, score, shakemap_tif,
+                          spotcheck)
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 warnings.filterwarnings("ignore", category=FutureWarning)
@@ -21,6 +22,7 @@ STEPS = {
     "hazards": hazards.main,
     "score": score.main,
     "analyze": analyze.main,
+    "outputs": outputs.main,
     "spotcheck": spotcheck.main,
 }
 

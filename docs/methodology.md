@@ -14,6 +14,7 @@ run's log. The data itself is described in `data_inventory.md`.
 | 5 | `hazards.py` | `05_buildings_hazards` | CGS zones, liquefaction probability, fault distance |
 | 6 | `score.py` | `06_buildings_scored`, `docs/score_sensitivity.csv` | Index and sensitivity check |
 | 7 | `analyze.py` | `data/processed/*` | Building table and neighborhood and tract summaries |
+| 8 | `outputs.py` | `data/processed/web/*` | ShakeMap cropped to SF as a COG, building points as GeoJSON |
 | | `spotcheck.py` | log only | Re-derives a few buildings straight from the raw files |
 
 ## Decisions made after the inventory

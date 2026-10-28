@@ -5,8 +5,8 @@ garages or storefronts, the kind that collapsed in the Marina in 1989. The city 
 since 2013. I wanted to see where they sit under the USGS HayWired scenario, a M7.0 earthquake on the Hayward Fault,
 and how many of the ones facing the hardest shaking and the worst ground still haven't been retrofitted.
 
-This is a work in progress. The data inventory is in `docs/data_inventory.md` and the pipeline and scoring are in
-`docs/methodology.md`. The findings write-up and the web map come next.
+The findings are in `docs/findings.md`. The data inventory is in `docs/data_inventory.md` and the pipeline and
+scoring are in `docs/methodology.md`. A web map is next.
 
 ## What I've found so far
 
@@ -97,4 +97,6 @@ Or `make setup download pipeline test`. `python -m seismic_risk score analyze` r
 all you need after changing `config/score.toml`.
 
 Outputs land in `data/processed/`: `buildings_seismic.parquet` (one row per soft-story building, with every input,
-component and variant score), `neighborhood_summary.csv` and `tract_summary.csv`.
+component and variant score), `neighborhood_summary.csv` and `tract_summary.csv`. For the web map, `data/processed/web/` has the ShakeMap cropped to
+SF as a Cloud-Optimized GeoTIFF (native EPSG:4326 grid, MMI in band 1) and the buildings as a 2.6 MB GeoJSON of
+points in EPSG:4326.
