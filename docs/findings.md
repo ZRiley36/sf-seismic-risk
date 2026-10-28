@@ -34,7 +34,7 @@ Retrofitted buildings on liquefiable ground in strong shaking still score high, 
 though only 17 of its buildings are unretrofitted.
 
 | Neighborhood | Soft-story buildings | Unretrofitted | High score | High score, unretrofitted | Units in high score | Est. residents in high score | In liquefaction zone | Mean MMI |
-|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|
 | Marina | 407 | 17 | 218 | 17 | 2,654 | 4,581 | 206 | 6.66 |
 | Mission | 622 | 40 | 244 | 23 | 2,295 | 4,562 | 247 | 6.68 |
 | Castro/Upper Market | 260 | 13 | 103 | 13 | 848 | 1,434 | 58 | 7.04 |
@@ -86,24 +86,23 @@ are a mix of high-shaking areas (Castro, Hayes Valley, Haight) and bad-ground ar
 
 ## Highest-scoring unretrofitted buildings
 
-These are all public records from the city's soft-story list. They're listed here because they combine the most
-hazard factors in this index. That isn't a prediction that any of them will fail.
+These ten combine the most hazard factors in this index. That isn't a prediction that any of them will fail.
 
-| Rank | Address | Neighborhood | Tier | Year built | Units | MMI | Liquefaction zone | Score |
-|---|---|---|---|---|---|---|---|---|
-| 1 | 360 Baker St | Hayes Valley | 4 | 1906 | 18 | 7.07 | yes | 0.895 |
-| 2 | 1068 Howard St | South of Market | 4 | 1908 | 15 | 7.13 | yes | 0.893 |
-| 3 | 770 Natoma St | South of Market | 4 | 1907 | 6 | 7.13 | yes | 0.883 |
-| 4 | 235 Church St | Castro/Upper Market | 4 | 1925 | 10 | 7.07 | yes | 0.869 |
-| 5 | 412 Broderick St | Hayes Valley | 3 | 1908 | 6 | 7.07 | yes | 0.863 |
-| 6 | 957 Oak St | Haight Ashbury | 3 | 1900 | 5 | 7.07 | yes | 0.861 |
-| 7 | 69 Henry St | Castro/Upper Market | 3 | 1922 | 5 | 7.07 | yes | 0.841 |
-| 8 | 461 Noe St | Castro/Upper Market | 3 | 1908 | 6 | 7.07 | no | 0.838 |
-| 9 | 3436 16th St | Castro/Upper Market | 3 | 1902 | 5 | 7.07 | no | 0.836 |
-| 10 | 3107 16th St | Mission | 4 | 1907 | 78 | 6.93 | yes | 0.830 |
+| Rank | Neighborhood | Tier | Year built | Units | MMI | Liquefaction zone | Score |
+|---|---|---|---|---|---|---|---|
+| 1 | Hayes Valley | 4 | 1906 | 18 | 7.07 | yes | 0.895 |
+| 2 | South of Market | 4 | 1908 | 15 | 7.13 | yes | 0.893 |
+| 3 | South of Market | 4 | 1907 | 6 | 7.13 | yes | 0.883 |
+| 4 | Castro/Upper Market | 4 | 1925 | 10 | 7.07 | yes | 0.869 |
+| 5 | Hayes Valley | 3 | 1908 | 6 | 7.07 | yes | 0.863 |
+| 6 | Haight Ashbury | 3 | 1900 | 5 | 7.07 | yes | 0.861 |
+| 7 | Castro/Upper Market | 3 | 1922 | 5 | 7.07 | yes | 0.841 |
+| 8 | Castro/Upper Market | 3 | 1908 | 6 | 7.07 | no | 0.838 |
+| 9 | Castro/Upper Market | 3 | 1902 | 5 | 7.07 | no | 0.836 |
+| 10 | Mission | 4 | 1907 | 78 | 6.93 | yes | 0.830 |
 
 All ten are unretrofitted and the top ten overall, because the retrofit component puts every unretrofitted building
-ahead of a retrofitted one with the same hazards. 461 Noe and 3436 16th St aren't in a CGS zone, but HayWired puts
+ahead of a retrofitted one with the same hazards. Ranks 8 and 9 aren't in a CGS zone, but HayWired puts
 them in its 20 to 25% liquefaction class.
 
 ## How much the ranking depends on my choices
